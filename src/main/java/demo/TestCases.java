@@ -124,12 +124,10 @@ public class TestCases {
 
        submitbtn.click();
 
-       Thread.sleep(1000);
+       Thread.sleep(3000);
 
+       WebElement resultText = driver.findElement(By.xpath("//div[text()='Thanks for your response, Automation Wizard!']"));
 
-
-
+       System.out.println(resultText.getText());
     }
-
-
 }
