@@ -16,8 +16,6 @@ For some WebElements, values are passed with some conitions
 3. For "What is the Time Now?" -Provide the current time (Keeping in mind AM/PM) in the next field.
 
 ## Installation Instructions:
-Clear steps to set up and run the project locally.
-> Example:
 ```
 # java version 17
 java --version
@@ -27,7 +25,7 @@ java --version
 git --version
 ```
 ```
-# gradle 8.6
+# gradle version 8.6
 gradle --version
 ```
 
@@ -35,10 +33,12 @@ gradle --version
 # vscode 1.87.2
 git --version
 ```
-
+## Dependency Required:
+```
+# WebDriverManager
+# Selenium
+```
 ## Usage and Examples:
-Provide sample code or usage scenarios to showcase how the project works.
-> Example:
 ```
 # to build the project
 gradlew build
