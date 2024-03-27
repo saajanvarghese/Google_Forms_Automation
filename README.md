@@ -32,7 +32,7 @@ gradle --version
 # vscode 1.87.2
 git --version
 ```
-## Dependency Required to run:
+## Required Dependency to run:
 ```
 # WebDriverManager
 # Selenium
