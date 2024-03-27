@@ -3,7 +3,6 @@ package demo;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -31,22 +30,14 @@ public class TestCases {
 
     }
 
-    
-    public  void testCase01(){
+    public  void testCase01() throws InterruptedException{
         System.out.println("Start Test case: testCase01");
-        driver.get("https://www.google.com");
-        System.out.println("end Test case: testCase01");
-    }
 
-    public void testCase02() throws InterruptedException{
-
-        System.out.println("Start Test case: testCase01");
-        driver.get("https://docs.google.com/forms/d/e/1FAIpQLSep9LTMntH5YqIXa5nkiPKSs283kdwitBBhXWyZdAS-e4CxBQ/viewform");
+        SeleniumWrapper.navigate(driver, "https://docs.google.com/forms/d/e/1FAIpQLSep9LTMntH5YqIXa5nkiPKSs283kdwitBBhXWyZdAS-e4CxBQ/viewform");
 
         WebElement nameTextElement = driver.findElement(By.xpath("//div[@jscontroller='oCiKKc']//div[@class='Xb9hP']//input"));
 
         SeleniumWrapper.clickEnterText(nameTextElement, "Saajan Varghese");
-        System.out.println("end Test case: testCase02");
 
         WebElement practiceAutomation = driver.findElement(By.xpath("//div[@jscontroller='sWGJ4b']//textarea"));
 
@@ -54,23 +45,17 @@ public class TestCases {
 
         SeleniumWrapper.clickEnterText(practiceAutomation, "I want to be the best QA Engineer! " + epoch);
 
-        //Thread.sleep(10000);
-
         WebElement experienceOptions = driver.findElement(By.xpath("//div[@class='nWQGrd zwllIb']//div[@id='i13' and @data-value = '0 - 2']"));
 
         SeleniumWrapper.clickAction(experienceOptions, driver);
 
         WebElement javaCheckBox = driver.findElement(By.xpath("//div[@class='eBFwI']//div[@id='i30' and @data-answer-value= 'Java']"));
 
-        SeleniumWrapper.clickAction(javaCheckBox, driver);
-
         WebElement SeleniumCheckBox = driver.findElement(By.xpath("//div[@class='eBFwI']//div[@id='i33' and @data-answer-value= 'Selenium']"));
-
-        SeleniumWrapper.clickAction(SeleniumCheckBox, driver);
 
         WebElement TestNGCheckBox = driver.findElement(By.xpath("//div[@class='eBFwI']//div[@id='i39' and @data-answer-value= 'TestNG']"));
 
-        SeleniumWrapper.clickAction(TestNGCheckBox, driver);
+        SeleniumWrapper.checkBoxClick(javaCheckBox, SeleniumCheckBox, TestNGCheckBox, driver);
 
         WebElement selectTag = driver.findElement(By.xpath("//div[@jscontroller='liFoG']//div[@role='listbox']"));
 
@@ -98,7 +83,6 @@ public class TestCases {
 
         dateField.sendKeys(formatedDate);
         dateField.sendKeys(Keys.ENTER);
-       
 
        LocalTime myObj = LocalTime.now();
 
@@ -116,9 +100,7 @@ public class TestCases {
 
        WebElement minutes = driver.findElement(By.xpath("(//input[@type='text'])[3]"));
 
-       SeleniumWrapper.clickEnterText(hours, formatedHour);
-
-       SeleniumWrapper.clickEnterText(minutes, formatedMinute);
+       SeleniumWrapper.EnterTimeField(hours, minutes, formatedHour, formatedMinute);
 
        WebElement submitbtn = driver.findElement(By.xpath("//span[text()='Submit']"));
 
@@ -129,5 +111,8 @@ public class TestCases {
        WebElement resultText = driver.findElement(By.xpath("//div[text()='Thanks for your response, Automation Wizard!']"));
 
        System.out.println(resultText.getText());
+       System.out.println("end Test case: testCase01");
+
+       endTest();
     }
 }
