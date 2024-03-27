@@ -1,6 +1,5 @@
-# Project Name: Google Forms Automation
+# Google Forms Automation
 
-## Google Forms Automation
 # Description
 The Application Under Test is Google Forms Automation.
 
@@ -15,7 +14,7 @@ For some WebElements, values are passed with some conitions
 2. For Date Field - Provided the current date minus 7 days in the date field, it should be dynamically calculated and not hardcoded.
 3. For "What is the Time Now?" -Provide the current time (Keeping in mind AM/PM) in the next field.
 
-## Installation Instructions:
+## Required Software to Install:
 ```
 # java version 17
 java --version
@@ -33,12 +32,12 @@ gradle --version
 # vscode 1.87.2
 git --version
 ```
-## Dependency Required:
+## Dependency Required to run:
 ```
 # WebDriverManager
 # Selenium
 ```
-## Usage and Examples:
+## Instructions to Run the Code:
 ```
 # to build the project
 gradlew build
