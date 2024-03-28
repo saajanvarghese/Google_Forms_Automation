@@ -26,7 +26,7 @@ public class TestCases {
     {
         System.out.println("End Test: TestCases");
         driver.close();
-        driver.quit();
+        // driver.quit();
 
     }
 
@@ -36,7 +36,7 @@ public class TestCases {
         // navigate to Google Forms link
         SeleniumWrapper.navigate(driver, "https://docs.google.com/forms/d/e/1FAIpQLSep9LTMntH5YqIXa5nkiPKSs283kdwitBBhXWyZdAS-e4CxBQ/viewform");
 
-        //Locate nameTextBox
+        // Locate nameTextBox
         WebElement nameTextElement = driver.findElement(By.xpath("//div[@jscontroller='oCiKKc']//div[@class='Xb9hP']//input"));
 
         //Send values to nameTextBox using Selenium Wrapper method
@@ -116,10 +116,10 @@ public class TestCases {
        DateTimeFormatter myFormatMinuteObj = DateTimeFormatter.ofPattern("mm");
 
        //Convert Time to the pattern format
-       String formatedHour = myDateObj.format(myFormatHourObj);
+       String formatedHour = myObj.format(myFormatHourObj);
 
        //Convert Time to the pattern format
-       String formatedMinute = myDateObj.format(myFormatMinuteObj);
+       String formatedMinute = myObj.format(myFormatMinuteObj);
 
        //Locate Hours TextBox
        WebElement hours = driver.findElement(By.xpath("(//input[@type='text'])[2]"));

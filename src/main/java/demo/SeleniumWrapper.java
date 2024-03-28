@@ -6,21 +6,35 @@ import org.openqa.selenium.WebElement;
 
 public class SeleniumWrapper {
 
-    public static boolean clickEnterText(WebElement inputBox, String keysToSend){
+    // public static boolean clickEnterText(WebElement inputBox, String keysToSend){
+    //     try {
+    //         inputBox.click();
+    //         inputBox.clear();
+    //         inputBox.sendKeys(keysToSend);
+    //         Thread.sleep(1000);
+    //         return true;
+            
+    //     } catch (Exception e) {
+    //         // TODO: handle exception
+    //         return false;
+            
+    //     }
+    // }
+
+    public static boolean clickEnterText(WebElement inputBox, String KeysToSend){
         try {
             inputBox.click();
             inputBox.clear();
-            inputBox.sendKeys(keysToSend);
+            inputBox.sendKeys(KeysToSend);
             Thread.sleep(1000);
             return true;
-            
         } catch (Exception e) {
             // TODO: handle exception
             return false;
-            
         }
-
     }
+
+
 
     public static boolean clickAction(WebElement element, WebDriver driver){
         if(element.isDisplayed()){
@@ -96,10 +110,5 @@ public class SeleniumWrapper {
             
         }
 
-    }
-
-    public static void setDateUsingJavaScript(WebDriver driver, WebElement element, String dateValue) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].setAttribute('value', arguments[1])", element, dateValue);
     }
 }
