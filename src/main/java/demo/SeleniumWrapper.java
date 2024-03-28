@@ -6,22 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class SeleniumWrapper {
 
-    // public static boolean clickEnterText(WebElement inputBox, String keysToSend){
-    //     try {
-    //         inputBox.click();
-    //         inputBox.clear();
-    //         inputBox.sendKeys(keysToSend);
-    //         Thread.sleep(1000);
-    //         return true;
-            
-    //     } catch (Exception e) {
-    //         // TODO: handle exception
-    //         return false;
-            
-    //     }
-    // }
-
-    public static boolean clickEnterText(WebElement inputBox, String KeysToSend){
+      public static boolean clickEnterText(WebElement inputBox, String KeysToSend){
         try {
             inputBox.click();
             inputBox.clear();
