@@ -3,8 +3,10 @@ package demo;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,8 +27,8 @@ public class TestCases {
     public void endTest()
     {
         System.out.println("End Test: TestCases");
-        driver.close();
-        // driver.quit();
+        //driver.close();
+         driver.quit();
 
     }
 
@@ -50,24 +52,48 @@ public class TestCases {
         //Send values to Practicing Automation using Selenium Wrapper method
         SeleniumWrapper.clickEnterText(practiceAutomation, "I want to be the best QA Engineer! " + epoch);
 
-        //Locate Experience radio-button
-        WebElement experienceOptions = driver.findElement(By.xpath("//div[@class='nWQGrd zwllIb']//div[@id='i13' and @data-value = '0 - 2']"));
-        
-        //Click on radio-button using Selenium Wrapper method
-        SeleniumWrapper.clickAction(experienceOptions, driver);
+        // Find and click on yearsofExperience by creating a list of Elements
+        List<WebElement> radiobtnOptions = driver.findElements(By.xpath("//div[@class='nWQGrd zwllIb']//span"));
 
-        //Locate Java checkBox
-        WebElement javaCheckBox = driver.findElement(By.xpath("//div[@class='eBFwI']//div[@id='i30' and @data-answer-value= 'Java']"));
+        String yearsofExperience = "0 - 2";
 
-        //Locate Selenium checkBox
-        WebElement SeleniumCheckBox = driver.findElement(By.xpath("//div[@class='eBFwI']//div[@id='i33' and @data-answer-value= 'Selenium']"));
+        for(int i = 0; i< radiobtnOptions.size(); i++){
 
-        //Locate TestNG checkBox
-        WebElement TestNGCheckBox = driver.findElement(By.xpath("//div[@class='eBFwI']//div[@id='i39' and @data-answer-value= 'TestNG']"));
+            if(radiobtnOptions.get(i).getText().equals(yearsofExperience)){
+                System.out.println("Here I Am");
+                WebElement radioOption = driver.findElement(By.xpath("//div[@class='nWQGrd zwllIb']//span[text()='"+yearsofExperience+"']"));
+                SeleniumWrapper.clickAction(radioOption, driver);
+            }
+        }
 
-        //Click on Java, Selenium, TestNG check-box
-        SeleniumWrapper.checkBoxClick(javaCheckBox, SeleniumCheckBox, TestNGCheckBox, driver);
+        Thread.sleep(2000);
 
+        // Find and click on CheckBoxes by creating a list of Elements
+        List<WebElement> checkBoxbtnOptions = driver.findElements(By.xpath("//div[@class='eBFwI']//span"));
+
+        String javaText = "Java";
+        String SeleniumText = "Selenium";
+        String TestNGText = "TestNG";
+
+        for (int i = 0; i < checkBoxbtnOptions.size(); i++) {
+            String text = checkBoxbtnOptions.get(i).getText();
+
+            if (text.equals(javaText) || text.equals(SeleniumText) || text.equals(TestNGText)) {
+
+                WebElement parentDiv = (WebElement) ((JavascriptExecutor) driver).executeScript(
+                        "return arguments[0].parentNode;", checkBoxbtnOptions.get(i));
+
+                WebElement javaCheckBox = parentDiv
+                        .findElement(By.xpath("//div[@id='i30' and @data-answer-value='" + javaText + "']"));
+                WebElement SeleniumCheckBox = parentDiv
+                        .findElement(By.xpath("//div[@id='i33' and @data-answer-value='" + SeleniumText + "']"));
+                WebElement TestNGCheckBox = parentDiv
+                        .findElement(By.xpath("//div[@id='i39' and @data-answer-value='" + TestNGText + "']"));
+
+                SeleniumWrapper.checkBoxClick(javaCheckBox, SeleniumCheckBox, TestNGCheckBox, driver);
+                break;
+            }
+        }
         //Locate Select Tag
         WebElement selectTag = driver.findElement(By.xpath("//div[@jscontroller='liFoG']//div[@role='listbox']"));
 
@@ -94,7 +120,7 @@ public class TestCases {
         System.out.println(formatedDate);
 
         //Locate Date field
-        WebElement dateField = driver.findElement(By.cssSelector("input[type='date']"));
+        WebElement dateField = driver.findElement(By.xpath("//input[@type='date']"));
         //Clear Date field
         dateField.clear();
 
@@ -141,10 +167,22 @@ public class TestCases {
        // Find Element
        WebElement resultText = driver.findElement(By.xpath("//div[text()='Thanks for your response, Automation Wizard!']"));
 
-       //Get the Text from Element
-       System.out.println(resultText.getText());
-       System.out.println("end Test case: testCase01");
+       // Get the ElementText in a String
+       String getResultElementtxt = resultText.getText();
 
+       // Declaring Expected String
+       String resultElementText = "Thanks for your response, Automation Wizard!";
+
+       //Verifying Element String with Expected String
+       if(getResultElementtxt.equals(resultElementText)){
+        System.out.println("Verified Text: "+resultElementText);
+       }
+       else{
+        System.out.println("ResultText not Verifed");
+        driver.close();
+       }
+
+       System.out.println("end Test case: testCase01");
        endTest();
     }
 }
