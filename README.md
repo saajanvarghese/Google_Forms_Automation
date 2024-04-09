@@ -14,6 +14,9 @@ For some WebElements, values are passed with some conitions
 2. For Date Field - Provided the current date minus 7 days in the date field, it should be dynamically calculated and not hardcoded.
 3. For "What is the Time Now?" -Provide the current time (Keeping in mind AM/PM) in the next field.
 
+# Note on This Google Forms Automation Project
+1. Added Selenium Wrapper Methods
+
 ## Required Software to Install:
 ```
 # java version 17
