@@ -61,7 +61,7 @@ public class TestCases {
 
             if(radiobtnOptions.get(i).getText().equals(yearsofExperience)){
                 WebElement radioOption = driver.findElement(By.xpath("//div[@class='nWQGrd zwllIb']//span[text()='"+yearsofExperience+"']"));
-                SeleniumWrapper.clickAction(radioOption, driver);s
+                SeleniumWrapper.clickAction(radioOption, driver);
             }
         }
 
