@@ -60,9 +60,8 @@ public class TestCases {
         for(int i = 0; i< radiobtnOptions.size(); i++){
 
             if(radiobtnOptions.get(i).getText().equals(yearsofExperience)){
-                System.out.println("Here I Am");
                 WebElement radioOption = driver.findElement(By.xpath("//div[@class='nWQGrd zwllIb']//span[text()='"+yearsofExperience+"']"));
-                SeleniumWrapper.clickAction(radioOption, driver);
+                SeleniumWrapper.clickAction(radioOption, driver);s
             }
         }
 
