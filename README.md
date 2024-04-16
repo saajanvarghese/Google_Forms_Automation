@@ -57,7 +57,6 @@ git --version
 # gradle version 8.6
 gradle --version
 ```
-
 ```
 # vscode 1.88.1
 git --version
