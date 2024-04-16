@@ -16,7 +16,7 @@ For some WebElements, values are passed with some conitions
 
 3. For "What is the Time Now?" -Provide the current time (Keeping in mind AM/PM) in the next field.
 
-This Flipkart Automation project consists of 1 Testcase in Total.
+This Google Forms Automation project consists of 1 Testcase in Total.
 
 # TestCase 01 Description
 1. Navigate to this google form.
