@@ -18,8 +18,6 @@ public class App {
         tests.testCase01();
 
         //END Tests
-
-
         tests.endTest(); // End your test by clearning connections and closing browser
     }
 

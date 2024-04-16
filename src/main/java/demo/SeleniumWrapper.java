@@ -19,8 +19,6 @@ public class SeleniumWrapper {
         }
     }
 
-
-
     public static boolean clickAction(WebElement element, WebDriver driver){
         if(element.isDisplayed()){
             try {
